@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root to: 'home_pages#index'
 
-  resources :home_pages
+  resources :home_pages, only: [:index]
   resources :charges
 
   # Example of regular route:

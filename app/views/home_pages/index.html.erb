@@ -8,9 +8,9 @@
   </div>
   <div class="row">
     <p>March 11 - 12, 2017</p>
-    <a href="#" style="text-decoration: none;">Tosca Banquet Hall</a>
+    <a href="#" class="location" style="text-decoration: none;">Tosca Banquet Hall</a>
     <br>
-    <a href="#" style="text-decoration: none;">Oshawa, ON</a>
+    <a href="#" class="location" style="text-decoration: none;">Oshawa, ON</a>
   </div>
 </div>
 
@@ -33,10 +33,10 @@
     - The Banquet Staff
   </div>
   <div class="row">
-    <h4><small>Dress Code: Black Tie Preferred</small></h4>
+    <h4><small style="color: black;">Dress Code: Black Tie Preferred</small></h4>
   </div>
-  <div class="row" style="color: gray; margin-top: 20px;">
-    If you have any questions about payment please contact Bro. Nick Cholodny (ncholodny@gmail.com).
+  <div class="row" style="color: black; margin-top: 20px;">
+    If you have any questions please contact <a href="mailto:zetapsi1847@gmail.com">your banquet commitee.</a>
   </div>
 </div>
 
@@ -45,60 +45,62 @@
 
 <div class="jumbotron">
   <h2>Purchase Your Tickets</h2>
-  <%= form_tag charges_path do %>
-    <article>
-      <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
-        </div>
-      <% end %>
-      <label class="amount">
-        <span>Active Ticket; $90.00</span>
-      </label>
-    </article>
+  <div class="row">
+    <span>
+      <%= form_tag charges_path do %>
+        <article>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+        </article>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-description="Active Ticket"
-            data-amount="9000"
-            data-locale="auto"></script>
-  <% end %>
-  <%= form_tag charges_path do %>
-    <article>
-      <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
-        </div>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Active Ticket"
+                data-amount="9000"
+                data-label="Active Ticket"
+                data-locale="auto"></script>
       <% end %>
-      <label class="amount">
-        <span>Elder Ticket; $90.00</span>
-      </label>
-    </article>
+    </span>
+    <span>
+      <%= form_tag charges_path do %>
+        <article>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+        </article>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-description="Elder Ticket"
-            data-amount="9000"
-            data-locale="auto"></script>
-  <% end %>
-  <%= form_tag charges_path do %>
-    <article>
-      <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
-        </div>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Elder Ticket"
+                data-amount="9000"
+                data-label="Elder Ticket"
+                data-locale="auto"></script>
       <% end %>
-      <label class="amount">
-        <span>Elder Ticket + Dues; $240.00</span>
-      </label>
-    </article>
+    </span>
+    <span>
+      <%= form_tag charges_path do %>
+        <article>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+        </article>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-description="Elder Ticket + Dues"
-            data-amount="24000"
-            data-locale="auto"></script>
-  <% end %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Elder Ticket + Dues"
+                data-amount="24000"
+                data-label="Elder Ticket + Dues"
+                data-locale="auto"></script>
+      <% end %>
+    </span>
+  </div>
 </div>
 
 <script>

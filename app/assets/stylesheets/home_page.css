@@ -6,5 +6,11 @@ body, a {
   color: gold;
 }
 label {
-  color: gray;
+  color: black;
+}
+.jumbotron {
+  background-color: gray;
+}
+span {
+  display: inline-block !important;
 }
