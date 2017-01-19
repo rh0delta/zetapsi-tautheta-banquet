@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: 'home_pages#index'
 
   resources :home_pages
+  resources :charges
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
