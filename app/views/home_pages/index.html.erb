@@ -1,0 +1,74 @@
+<div class="jumbotron">
+  <div class="row">
+    <%= image_tag('ttheta.jpeg', size: '115x150', style: 'display: table; margin: 0 auto; border-radius: 5px;') %>
+  </div>
+  <div class="row">
+    <h2 style="text-align: center">Zeta Psi Presents...</h2>
+    <h4 style="text-align: center">Tau Theta's 12th Annual Anniversary Banquet</h4>
+  </div>
+  <div class="row">
+    <p>March 11 - 12, 2017</p>
+    <a href="#" style="text-decoration: none;">Tosca Banquet Hall</a>
+    <br>
+    <a href="#" style="text-decoration: none;">Oshawa, ON</a>
+  </div>
+</div>
+
+<div class="jumbotron" style="font-size: 18px">
+  <div class="row">
+    The Brothers of the Zeta Psi Fraternity Tau Theta Chapter invite you to an evening of celebration to
+    commemorate our 12 year anniversary.  The night will be filled with great company, dinner, drinks and dancing.
+    Cocktails start at 6pm and dinner will be served at 7pm.  There will also be a silent auction running throughout
+    the evening.
+  </div>
+  <div class="row" style="margin-top: 20px;">
+    Ticket price is $90; for Chapters or groups of out of town brothers you can purchase a table of 10 for $800.
+    If you purchase a table please send along the names of the individuals attending.  We look forward to hosting
+    you this year and celebrating 12 years of brotherhood at Tau Theta.
+  </div>
+  <div class="row" style="margin-top: 20px;">
+    Tau Kappa Phi,
+  </div>
+  <div class="row">
+    - The Banquet Staff
+  </div>
+  <div class="row">
+    <h4><small>Dress Code: Black Tie Preferred</small></h4>
+  </div>
+  <div class="row" style="color: gray; margin-top: 20px;">
+    If you have any questions about payment please contact Bro. Nick Cholodny (ncholodny@gmail.com).
+  </div>
+</div>
+
+<div id="map" style="height: 400px; width: 100%;">
+</div>
+<script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 17,
+          center: {lat: 43.8742923, lng: -78.8886865},
+          scrollwheel: false
+        });
+        var geocoder = new google.maps.Geocoder();
+
+        geocodeAddress(geocoder, map);
+      }
+
+      function geocodeAddress(geocoder, resultsMap) {
+        var address = 'Tosca Banquet Hall';
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location,
+              icon: "<%= ActionController::Base.helpers.asset_path('map-marker-icon.png') %>"
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+    </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU3Y1dluzVy2p_X48j8GRPbCzv1KFftxQ&callback=initMap">
+</script>

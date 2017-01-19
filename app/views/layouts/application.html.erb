@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BanquetV2</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <!-- <div class="container"> -->
+    <!-- Static navbar -->
+      <nav class="navbar navbar-default navbar-inverse navbar-static-top navbar-gold">
+        <div class="container-fluid" style="background-color: black;">
+          <div class="navbar-header">
+            <%= image_tag('ztrident.jpg', size: '75x50', style: 'float: left;') %>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#" style="color: gold;">Tau Theta Annual Banquet</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+  <!-- </div> -->
+
+</body>
+</html>
