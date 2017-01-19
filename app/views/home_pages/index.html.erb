@@ -40,35 +40,94 @@
   </div>
 </div>
 
-<div id="map" style="height: 400px; width: 100%;">
+<div id="map" class="jumbotron" style="height: 400px; width: 100%;">
 </div>
+
+<div class="jumbotron">
+  <h2>Purchase Your Tickets</h2>
+  <%= form_tag charges_path do %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class="amount">
+        <span>Active Ticket; $90.00</span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Active Ticket"
+            data-amount="9000"
+            data-locale="auto"></script>
+  <% end %>
+  <%= form_tag charges_path do %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class="amount">
+        <span>Elder Ticket; $90.00</span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Elder Ticket"
+            data-amount="9000"
+            data-locale="auto"></script>
+  <% end %>
+  <%= form_tag charges_path do %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class="amount">
+        <span>Elder Ticket + Dues; $240.00</span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Elder Ticket + Dues"
+            data-amount="24000"
+            data-locale="auto"></script>
+  <% end %>
+</div>
+
 <script>
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 17,
-          center: {lat: 43.8742923, lng: -78.8886865},
-          scrollwheel: false
-        });
-        var geocoder = new google.maps.Geocoder();
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 17,
+      center: {lat: 43.8742923, lng: -78.8886865},
+      scrollwheel: false
+    });
+    var geocoder = new google.maps.Geocoder();
 
-        geocodeAddress(geocoder, map);
-      }
+    geocodeAddress(geocoder, map);
+  }
 
-      function geocodeAddress(geocoder, resultsMap) {
-        var address = 'Tosca Banquet Hall';
-        geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location,
-              icon: "<%= ActionController::Base.helpers.asset_path('map-marker-icon.png') %>"
-            });
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
+  function geocodeAddress(geocoder, resultsMap) {
+    var address = 'Tosca Banquet Hall';
+    geocoder.geocode({'address': address}, function(results, status) {
+      if (status === 'OK') {
+        resultsMap.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+          map: resultsMap,
+          position: results[0].geometry.location,
+          icon: "<%= ActionController::Base.helpers.asset_path('map-marker-icon.png') %>"
         });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
       }
-    </script>
+    });
+  }
+</script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU3Y1dluzVy2p_X48j8GRPbCzv1KFftxQ&callback=initMap">
 </script>
