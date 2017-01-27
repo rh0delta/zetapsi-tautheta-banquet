@@ -22,8 +22,7 @@
     the evening.
   </div>
   <div class="row" style="margin-top: 20px;">
-    Ticket price is $90; for Chapters or groups of out of town brothers you can purchase a table of 10 for $800.
-    If you purchase a table please send along the names of the individuals attending.  We look forward to hosting
+    Active and Elder tickets will be $60 and $75 respectively; We look forward to hosting
     you this year and celebrating 12 years of brotherhood at Tau Theta.
   </div>
   <div class="row" style="margin-top: 20px;">
@@ -59,7 +58,7 @@
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                 data-description="Active Ticket"
-                data-amount="9000"
+                data-amount="6000"
                 data-label="Active Ticket"
                 data-locale="auto"></script>
       <% end %>
@@ -77,7 +76,7 @@
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                 data-description="Elder Ticket"
-                data-amount="9000"
+                data-amount="7500"
                 data-label="Elder Ticket"
                 data-locale="auto"></script>
       <% end %>
@@ -95,7 +94,7 @@
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                 data-description="Elder Ticket + Dues"
-                data-amount="24000"
+                data-amount="22500"
                 data-label="Elder Ticket + Dues"
                 data-locale="auto"></script>
       <% end %>
