@@ -22,7 +22,7 @@
     the evening.
   </div>
   <div class="row" style="margin-top: 20px;">
-    Active and Elder tickets will be $60 and $75 respectively; We look forward to hosting
+    Active and Elder tickets will be $65 and $75 respectively; We look forward to hosting
     you this year and celebrating 12 years of brotherhood at Tau Theta.
   </div>
   <div class="row" style="margin-top: 20px;">
@@ -44,6 +44,7 @@
 
 <div class="jumbotron">
   <h2>Purchase Your Tickets</h2>
+  <h4><small style="color: white;">*Active ticket prices will go up after March 1st.</small></h4>
   <div class="row">
     <span>
       <%= form_tag charges_path do %>
@@ -58,7 +59,7 @@
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                 data-description="Active Ticket"
-                data-amount="6000"
+                data-amount="6500"
                 data-label="Active Ticket"
                 data-locale="auto"></script>
       <% end %>
