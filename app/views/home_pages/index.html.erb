@@ -76,9 +76,47 @@
 
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Active + Guest Ticket"
+                data-amount="13000"
+                data-label="Active + Guest Ticket"
+                data-locale="auto"></script>
+      <% end %>
+    </span>
+    <span>
+      <%= form_tag charges_path do %>
+        <article>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+        </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                 data-description="Elder Ticket"
                 data-amount="7500"
                 data-label="Elder Ticket"
+                data-locale="auto"></script>
+      <% end %>
+    </span>
+  </div>
+  <div class="row">
+    <span>
+      <%= form_tag charges_path do %>
+        <article>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+        </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Elder + Guest Ticket"
+                data-amount="15000"
+                data-label="Elder + Guest Ticket"
                 data-locale="auto"></script>
       <% end %>
     </span>
