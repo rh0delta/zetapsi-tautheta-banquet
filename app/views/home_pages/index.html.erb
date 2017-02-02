@@ -48,6 +48,7 @@
   <div class="row">
     <span>
       <%= form_tag charges_path do %>
+        <%= hidden_field_tag :amount, 6500 %>
         <article>
           <% if flash[:error].present? %>
             <div id="error_explanation">
@@ -66,6 +67,7 @@
     </span>
     <span>
       <%= form_tag charges_path do %>
+        <%= hidden_field_tag :amount, 13000 %>
         <article>
           <% if flash[:error].present? %>
             <div id="error_explanation">
@@ -84,6 +86,7 @@
     </span>
     <span>
       <%= form_tag charges_path do %>
+        <%= hidden_field_tag :amount, 7500 %>
         <article>
           <% if flash[:error].present? %>
             <div id="error_explanation">
@@ -104,6 +107,7 @@
   <div class="row">
     <span>
       <%= form_tag charges_path do %>
+        <%= hidden_field_tag :amount, 15000 %>
         <article>
           <% if flash[:error].present? %>
             <div id="error_explanation">
@@ -122,6 +126,7 @@
     </span>
     <span>
       <%= form_tag charges_path do %>
+        <%= hidden_field_tag :amount, 22500 %>
         <article>
           <% if flash[:error].present? %>
             <div id="error_explanation">
